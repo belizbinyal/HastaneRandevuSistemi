@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import AppRoutes from './routes';
+import { Layout } from 'antd';
+import Header from './components/Layout/Header';
+import Sidebar from './components/Layout/Sidebar';
+import './App.css'; // App.css dosyasını ekleyin
+
+const { Content } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="app-container">
+      <Sidebar className="app-sidebar" />
+      <Layout>
+        <Header className="app-header" />
+        <Content className="app-content">
+          <AppRoutes />
+        </Content>
+      </Layout>
+    </Layout>
   );
 }
 
